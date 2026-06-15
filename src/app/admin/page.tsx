@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { Clock, XCircle, CheckCircle, AlertTriangle, Plus } from 'lucide-react'
+import { Clock, XCircle, CheckCircle, AlertTriangle, Plus, Calendar } from 'lucide-react'
 import Link from 'next/link'
 import { format, parseISO } from 'date-fns'
 import { getShifts, getActivityFeed } from '@/lib/data/repository'
@@ -92,6 +92,8 @@ export default async function AdminDashboardPage({
           value={kpis.totalUpcoming}
           label="Total upcoming shifts"
           sublabel="Next 14 days"
+          icon={Calendar}
+          iconClass="text-indigo-500"
         />
         <StatCard
           value={kpis.coveredCount}

@@ -74,15 +74,3 @@ npm run start    # serve the production build
 **Reset demo data:** re-run `supabase/seed.sql` in the Supabase SQL Editor.
 
 ---
-
-## Documentation
-
-In-depth documentation lives in [`docs/`](./docs):
-
-- [**Project Overview & PDR**](./docs/project-overview-pdr.md) — problem, scope, and MVP decisions
-- [**System Architecture**](./docs/system-architecture.md) — data flow, diagrams, auth, data model
-- [**Codebase Summary**](./docs/codebase-summary.md) — repo layout and the data layer
-- [**Code Standards**](./docs/code-standards.md) — conventions for extending the project
-- [**Design Guidelines**](./docs/design-guidelines.md) — colour tokens, components, patterns
-- [**Project Roadmap**](./docs/project-roadmap.md) — what's done and what's next
-- [**Deployment Guide**](./docs/deployment-guide.md) — Vercel + Supabase deployment
