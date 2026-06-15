@@ -118,16 +118,18 @@ export default async function AdminDashboardPage({
       </div>
 
       {/* Table + right panels */}
-      <div className="flex flex-col lg:flex-row gap-5 items-start">
+      <div className="flex flex-col lg:flex-row gap-5 lg:items-stretch">
         <div className="flex-1 min-w-0 bg-white border border-border-rostr p-4 rounded-lg">
           <Suspense fallback={<div className="py-8 text-center text-sm text-text-secondary">Loading shifts…</div>}>
             <ShiftTableClient rows={tableRows} />
           </Suspense>
         </div>
 
-        <div className="w-full lg:w-80 lg:flex-shrink-0 space-y-4">
+        <div className="w-full lg:w-80 lg:flex-shrink-0 flex flex-col gap-4">
           <PriorityShifts items={priorityItems} />
-          <RecentActivity events={activity} />
+          <div className="flex-1 relative min-h-[300px] lg:min-h-0">
+            <RecentActivity className="w-full h-full lg:absolute lg:inset-0" events={activity} />
+          </div>
         </div>
       </div>
     </div>

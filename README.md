@@ -2,8 +2,7 @@
 
 A rostering tool for D2C's field-staff campaigns, covering the full **create → invite → confirm → coverage** loop for in-store sampling and activation work.
 
-**Live demo:** https://rostr-lyart.vercel.app
-
+**Live demo:** https://rostr-field-operations-trial.vercel.app
 ## Stack
 
 - **Next.js 16** (App Router) · **React 19** · **TypeScript**
