@@ -113,7 +113,7 @@ export default async function AdminDashboardPage({
 
       {/* Inline metrics strip */}
       <div className="flex flex-col sm:flex-row gap-3">
-        <InlineMetric icon={Clock}         iconClass="text-blue-500"  iconBg="bg-blue-50"   label="Awaiting staff responses" sublabel="Invited & no response" value={kpis.awaitingResponses} />
+        <InlineMetric icon={Clock}         iconClass="text-blue-500"  iconBg="bg-blue-50"   label="Awaiting response" sublabel="Invited & no response" value={kpis.awaitingResponses} />
         <InlineMetric icon={XCircle}       iconClass="text-red-500"   iconBg="bg-red-50"    label="Declined invitations"     sublabel={`Across ${kpis.declinedCount} shift${kpis.declinedCount !== 1 ? 's' : ''}`} value={kpis.declinedCount} />
         <InlineMetric icon={CheckCircle}   iconClass="text-green-500" iconBg="bg-green-50"  label="Staff checked in"         value={kpis.checkedInCount} />
         <InlineMetric icon={AlertTriangle} iconClass="text-amber-500" iconBg="bg-amber-50"  label="Live issues"              value={kpis.liveIssueCount} />

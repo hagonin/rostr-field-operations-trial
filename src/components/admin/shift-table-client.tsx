@@ -33,12 +33,10 @@ export default function ShiftTableClient({ rows }: { rows: ShiftRow[] }) {
   const [state,    setState]    = useState('')
   const [suburb,   setSuburb]   = useState('')
   const [retailer, setRetailer] = useState('')
-  const [store,    setStore]    = useState('')
 
   const states    = useMemo(() => uniq(rows.map(r => r.shift.location?.state)),    [rows])
   const suburbs   = useMemo(() => uniq(rows.map(r => r.shift.location?.suburb)),   [rows])
   const retailers = useMemo(() => uniq(rows.map(r => r.shift.location?.retailer)), [rows])
-  const stores    = useMemo(() => uniq(rows.map(r => r.shift.location?.storeName)),[rows])
 
   const filtered = useMemo(() => rows.filter(r => {
     if (locationParam && r.shift.location?.storeName !== locationParam) return false
@@ -46,12 +44,11 @@ export default function ShiftTableClient({ rows }: { rows: ShiftRow[] }) {
     if (state    && r.shift.location?.state     !== state)    return false
     if (suburb   && r.shift.location?.suburb    !== suburb)   return false
     if (retailer && r.shift.location?.retailer  !== retailer) return false
-    if (store    && r.shift.location?.storeName !== store)    return false
     return true
-  }), [rows, q, state, suburb, retailer, store, locationParam])
+  }), [rows, q, state, suburb, retailer, locationParam])
 
-  const hasFilters = Boolean(q || state || suburb || retailer || store)
-  const clear = () => { setQ(''); setState(''); setSuburb(''); setRetailer(''); setStore('') }
+  const hasFilters = Boolean(q || state || suburb || retailer)
+  const clear = () => { setQ(''); setState(''); setSuburb(''); setRetailer('') }
 
   function navigate(shiftId: string) {
     router.push(`/admin/shifts/${shiftId}`)
@@ -97,13 +94,6 @@ export default function ShiftTableClient({ rows }: { rows: ShiftRow[] }) {
           <select aria-label="Filter by retailer" className={selCls} value={retailer} onChange={e => setRetailer(e.target.value)}>
             <option value="">Retailer</option>
             {retailers.map(s => <option key={s} value={s}>{s}</option>)}
-          </select>
-          <ChevronDown className="absolute right-2 top-2.5 w-4 h-4 text-text-secondary pointer-events-none" />
-        </div>
-        <div className="relative flex-1 min-w-[80px]">
-          <select aria-label="Filter by store" className={selCls} value={store} onChange={e => setStore(e.target.value)}>
-            <option value="">Store</option>
-            {stores.map(s => <option key={s} value={s}>{s}</option>)}
           </select>
           <ChevronDown className="absolute right-2 top-2.5 w-4 h-4 text-text-secondary pointer-events-none" />
         </div>
